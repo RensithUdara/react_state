@@ -4,6 +4,10 @@ import { useState } from 'react';
 function App() {
   const [count, setCount] = useState(0);
   const [inputValue, setInputValue] = useState('');
+  const [position, setPosition] = useState({
+    x: 0,
+    y: 5,
+  });
 
   const handleIncrement = () => {
     setCount(count + 1);
@@ -21,6 +25,13 @@ function App() {
     setInputValue(event.target.value);
   };
 
+  const handlePosition = () => {
+    setPosition((prevPosition) => ({
+      ...prevPosition,
+      x: 4,
+    }));
+  };
+
   return (
     <div className="app-container">
       <h1>Counter Example</h1>
@@ -29,6 +40,11 @@ function App() {
         <button onClick={handleIncrement}>Increment</button>
         <button onClick={handleDecrement}>Decrement</button>
         <button onClick={handleReset}>Reset</button>
+      </div>
+      <div className="position-display">
+        <p>x: {position.x}</p>
+        <p>y: {position.y}</p>
+        <button onClick={handlePosition}>Update Position</button>
       </div>
       <div className="input-section">
         <input
