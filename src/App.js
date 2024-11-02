@@ -8,6 +8,7 @@ function App() {
     x: 0,
     y: 5,
   });
+  const [numbers, setNumbers] = useState([1, 2, 3, 4]);
 
   const handleIncrement = () => {
     setCount(count + 1);
@@ -32,6 +33,13 @@ function App() {
     }));
   };
 
+  const handleIArray = () => {
+    const arr = numbers.map((num) => {
+      return num * 2;
+    });
+    setNumbers(arr);
+  };
+
   return (
     <div className="app-container">
       <h1>Counter Example</h1>
@@ -45,6 +53,17 @@ function App() {
         <p>x: {position.x}</p>
         <p>y: {position.y}</p>
         <button onClick={handlePosition}>Update Position</button>
+      </div>
+      <div>
+        <button onClick={handleIArray}>Update Array</button>
+      </div>
+      <div className="array-display">
+        <h2>Updated Array:</h2>
+        <ul>
+          {numbers.map((num, index) => (
+            <li key={index}>Value {index + 1}: {num}</li>
+          ))}
+        </ul>
       </div>
       <div className="input-section">
         <input
