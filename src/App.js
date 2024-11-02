@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>Counter Example</h1>
+      <h1>React State Example</h1>
       <div className="counter-display">{count}</div>
       <div className="button-group">
         <button onClick={handleIncrement}>Increment</button>
@@ -55,7 +55,9 @@ function App() {
         <button onClick={handlePosition}>Update Position</button>
       </div>
       <div>
-        <button onClick={handleIArray}>Update Array</button>
+        <button className="array-display-button" onClick={handleIArray}>
+          Update Array
+        </button>
       </div>
       <div className="array-display">
         <h2>Updated Array:</h2>
